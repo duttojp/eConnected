@@ -1,0 +1,16 @@
+# Configuration Apache OVH - eConnected Web
+RewriteEngine On
+
+# 1. Forcer HTTPS (Strictement nécessaire pour la Web Bluetooth API)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Encodage et types MIME
+AddDefaultCharset UTF-8
+AddType application/javascript .js
+AddType application/json .json
+AddType application/vnd.garmin.tcx+xml .tcx
+
+# 3. Sécurité de base
+Options -Indexes
+ServerSignature Off
