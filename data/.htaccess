@@ -1,0 +1,6 @@
+# Protection des données sensibles et tokens OAuth sur serveur Apache / OVH
+Require all denied
+<Files ~ "^\.">
+    Order allow,deny
+    Deny from all
+</Files>
